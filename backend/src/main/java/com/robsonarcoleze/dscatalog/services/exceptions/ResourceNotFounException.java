@@ -1,10 +1,10 @@
 package com.robsonarcoleze.dscatalog.services.exceptions;
 
-public class EntityNotFounException extends RuntimeException{
+public class ResourceNotFounException extends RuntimeException{
 
 	private static final long serialVersionUID = 1L;
 	
-	public EntityNotFounException(String msg) {
+	public ResourceNotFounException(String msg) {
 		super(msg);
 	}
 
