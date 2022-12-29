@@ -49,7 +49,7 @@ Pré-requisitos: Java 11+
 
 ```bash
 # clonar repositório
-git@github.com:RobsonArcoleze/DsCommerce.git
+git@github.com:RobsonArcoleze/DsCatalog.git
 
 # entrar na pasta do projeto back end
 cd backend
