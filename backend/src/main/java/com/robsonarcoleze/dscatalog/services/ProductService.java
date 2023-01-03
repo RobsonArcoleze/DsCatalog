@@ -19,7 +19,7 @@ import com.robsonarcoleze.dscatalog.entities.Product;
 import com.robsonarcoleze.dscatalog.repositories.CategoryRepository;
 import com.robsonarcoleze.dscatalog.repositories.ProductRepository;
 import com.robsonarcoleze.dscatalog.services.exceptions.DataBaseException;
-import com.robsonarcoleze.dscatalog.services.exceptions.ResourceNotFounException;
+import com.robsonarcoleze.dscatalog.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class ProductService {
@@ -39,7 +39,7 @@ public class ProductService {
 	@Transactional(readOnly = true)
 	public ProductDTO findById(Long id) {
 		Optional<Product> obj = repository.findById(id);
-		Product entity = obj.orElseThrow(()-> new ResourceNotFounException("Entity Not Found"));
+		Product entity = obj.orElseThrow(()-> new ResourceNotFoundException("Entity Not Found"));
 		return new ProductDTO(entity, entity.getCategories());
 	}
 
@@ -61,7 +61,7 @@ public class ProductService {
 			return new ProductDTO(entity);
 		}
 		catch (EntityNotFoundException e) {
-			throw new ResourceNotFounException("ID not found" + id);
+			throw new ResourceNotFoundException("ID not found" + id);
 		}
 	}
 
@@ -70,7 +70,7 @@ public class ProductService {
 			repository.deleteById(id);
 		}
 		catch (EmptyResultDataAccessException e) {
-			throw new ResourceNotFounException("Id not found " + id);
+			throw new ResourceNotFoundException("Id not found " + id);
 		}
 		catch(DataIntegrityViolationException e) {
 			throw new DataBaseException("Integrity violation");

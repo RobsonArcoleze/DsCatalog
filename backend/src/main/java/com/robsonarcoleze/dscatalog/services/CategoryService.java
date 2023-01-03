@@ -16,7 +16,7 @@ import com.robsonarcoleze.dscatalog.dto.CategoryDTO;
 import com.robsonarcoleze.dscatalog.entities.Category;
 import com.robsonarcoleze.dscatalog.repositories.CategoryRepository;
 import com.robsonarcoleze.dscatalog.services.exceptions.DataBaseException;
-import com.robsonarcoleze.dscatalog.services.exceptions.ResourceNotFounException;
+import com.robsonarcoleze.dscatalog.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class CategoryService {
@@ -33,7 +33,7 @@ public class CategoryService {
 	@Transactional(readOnly = true)
 	public CategoryDTO findById(Long id) {
 		Optional<Category> obj = repository.findById(id);
-		Category entity = obj.orElseThrow(()-> new ResourceNotFounException("Entity Not Found"));
+		Category entity = obj.orElseThrow(()-> new ResourceNotFoundException("Entity Not Found"));
 		return new CategoryDTO(entity);
 	}
 
@@ -54,7 +54,7 @@ public class CategoryService {
 			return new CategoryDTO(entity);
 		}
 		catch (EntityNotFoundException e) {
-			throw new ResourceNotFounException("ID not found" + id);
+			throw new ResourceNotFoundException("ID not found" + id);
 		}
 	}
 
@@ -63,7 +63,7 @@ public class CategoryService {
 			repository.deleteById(id);
 		}
 		catch (EmptyResultDataAccessException e) {
-			throw new ResourceNotFounException("Id not found " + id);
+			throw new ResourceNotFoundException("Id not found " + id);
 		}
 		catch(DataIntegrityViolationException e) {
 			throw new DataBaseException("Integrity violation");
