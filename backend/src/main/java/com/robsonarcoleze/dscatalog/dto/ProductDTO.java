@@ -13,7 +13,7 @@ public class ProductDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
-	private String name;
+	private String nome;
 	private String description;
 	private Double price;
 	private String imgUrl;
@@ -24,9 +24,9 @@ public class ProductDTO implements Serializable {
 	public ProductDTO() {
 	}
 
-	public ProductDTO(Long id, String name, String description, Double price, String imgUrl, Instant date) {
+	public ProductDTO(Long id, String nome, String description, Double price, String imgUrl, Instant date) {
 		this.id = id;
-		this.name = name;
+		this.nome = nome;
 		this.description = description;
 		this.price = price;
 		this.imgUrl = imgUrl;
@@ -35,7 +35,7 @@ public class ProductDTO implements Serializable {
 	
 	public ProductDTO(Product entity) {
 		id = entity.getId();
-		name = entity.getName();
+		nome = entity.getName();
 		description = entity.getDescription();
 		price = entity.getPrice();
 		imgUrl = entity.getImgUrl();
@@ -67,8 +67,8 @@ public class ProductDTO implements Serializable {
 		this.id = id;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String nome) {
+		this.nome = nome;
 	}
 
 	public void setDescription(String description) {
@@ -88,7 +88,7 @@ public class ProductDTO implements Serializable {
 	}
 
 	public String getName() {
-		return name;
+		return nome;
 	}
 
 	public String getDescription() {
