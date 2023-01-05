@@ -1,5 +1,7 @@
 package com.robsonarcoleze.dscatalog.resources.exceptions;
 
+
+
 import java.io.Serializable;
 import java.time.Instant;
 
