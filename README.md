@@ -35,6 +35,8 @@ https://www.figma.com/file/1n0aifcfatWv9ozp16XCrq/DSCatalog-Bootcamp?node-id=0%3
 - JPA / Hibernate
 - Maven
 - Banco h2
+- Junit
+- Mockito
 ...
 
 ## Front end
