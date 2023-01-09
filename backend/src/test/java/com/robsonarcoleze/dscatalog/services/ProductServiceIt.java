@@ -16,7 +16,7 @@ import com.robsonarcoleze.dscatalog.services.exceptions.ResourceNotFoundExceptio
 
 @SpringBootTest
 @Transactional
-public class ProductSerceIt {
+public class ProductServiceIt {
 	
 	@Autowired
 	private ProductService service;
