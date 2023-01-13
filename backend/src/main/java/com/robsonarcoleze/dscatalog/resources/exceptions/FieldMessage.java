@@ -2,26 +2,26 @@ package com.robsonarcoleze.dscatalog.resources.exceptions;
 
 import java.io.Serializable;
 
-public class FildMessage implements Serializable{
+public class FieldMessage implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	private String fildName;
+	private String fieldName;
 	private String message;
 	
-	public FildMessage() {
+	public FieldMessage() {
 	}
 
-	public FildMessage(String fildName, String message) {
-		this.fildName = fildName;
+	public FieldMessage(String fieldName, String message) {
+		this.fieldName = fieldName;
 		this.message = message;
 	}
 
-	public String getFildName() {
-		return fildName;
+	public String getFieldName() {
+		return fieldName;
 	}
 
-	public void setFildName(String fildName) {
-		this.fildName = fildName;
+	public void setFieldName(String fieldName) {
+		this.fieldName = fieldName;
 	}
 
 	public String getMessage() {
