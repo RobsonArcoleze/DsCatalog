@@ -31,13 +31,17 @@ public class ProductRepositoryTests {
 	
 	@Test
 	public void saveShouldPersitWithAutoIncrementWhenIdIsNull() {
+		
 		Product product = Factory.createProduct();
 		product.setId(null);
 		
 		product = repository.save(product);
+		Optional<Product> result = repository.findById(product.getId());
 		
 		Assertions.assertNotNull(product.getId());
-		Assertions.assertEquals(countTotalProducts + 1, product.getId());
+		Assertions.assertEquals(countTotalProducts + 1L, product.getId());
+		Assertions.assertTrue(result.isPresent());
+		Assertions.assertSame(result.get(), product);
 	}
 	
 	@Test
@@ -52,26 +56,11 @@ public class ProductRepositoryTests {
 	@Test
 	public void deleteShouldThrowEmptyResultDataAccessExceptionWhenIdDoesNotExist() {
 		
-		Assertions.assertThrows(EmptyResultDataAccessException.class, ()->{
+		Assertions.assertThrows(EmptyResultDataAccessException.class, () -> 	{
 			repository.deleteById(nonExixtingId);
 		});
 	}
 	
-	@Test
-	public void findByIdShouldReturnOptionalProductNotEmptyWhenIdExists() {
-		
-		Optional<Product> result = repository.findById(existingId);
-		
-		Assertions.assertTrue(result.isPresent());
-	}
 	
-	@Test
-	public void findByIdShouldReturnOptionalProductIsEmptyWhenIdDoesNotExists() {
-		
-		Optional<Product> result = repository.findById(nonExixtingId);
-		
-	//	Assertions.assertFalse(result.isPresent());
-		Assertions.assertTrue(result.isEmpty());
-	}
 	
 }
