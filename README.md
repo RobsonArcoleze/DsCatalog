@@ -35,6 +35,7 @@ https://www.figma.com/file/1n0aifcfatWv9ozp16XCrq/DSCatalog-Bootcamp?node-id=0%3
 - JPA / Hibernate
 - Maven
 - OAuth2
+- JWT
 - PostgreSQL
 - Junit
 - Mockito
