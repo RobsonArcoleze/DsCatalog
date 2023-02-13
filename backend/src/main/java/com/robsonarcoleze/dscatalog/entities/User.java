@@ -44,7 +44,6 @@ public class User implements UserDetails, Serializable{
 	private Set<Role> roles = new HashSet<>();
  	
 	public User() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public User(Long id, String firstName, String lastName, String email, String password) {

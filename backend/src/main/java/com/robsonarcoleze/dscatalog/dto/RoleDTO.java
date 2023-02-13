@@ -11,7 +11,6 @@ public class RoleDTO implements Serializable{
 	private String authority;
 	
 	public RoleDTO() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public RoleDTO(Long id, String authority) {
