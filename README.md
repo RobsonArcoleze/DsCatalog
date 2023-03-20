@@ -31,7 +31,7 @@ https://www.figma.com/file/1n0aifcfatWv9ozp16XCrq/DSCatalog-Bootcamp?node-id=0%3
 # Tecnologias utilizadas
 ## Back end
 - Java
-- Spring Boot
+- Spring Boot / Data / Security
 - JPA / Hibernate
 - Maven
 - OAuth2
